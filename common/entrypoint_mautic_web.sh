@@ -16,7 +16,7 @@ if [ ! -f /var/www/html/config/local.php ]; then
 	cat <<'EOF' > /var/www/html/config/local.php
 <?php
 $parameters = array(
-	'db_driver' => 'pdo_mysql',
+	'db_driver' => getenv('MAUTIC_DB_DRIVE') || 'pdo_mysql',
 	'db_host' => getenv('MAUTIC_DB_HOST'),
 	'db_port' => getenv('MAUTIC_DB_PORT'),
 	'db_name' => getenv('MAUTIC_DB_DATABASE'),
